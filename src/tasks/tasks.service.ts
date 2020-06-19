@@ -11,8 +11,8 @@ import { User } from '../auth/user.entity';
 export class TasksService {
   constructor(@InjectRepository(TaskRepository) private taskRepository: TaskRepository) {}
 
-  getTask(filterDto: GetTasksFilterDto): Promise<Task[]> {
-    return this.taskRepository.getTasks(filterDto);
+  getTask(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
+    return this.taskRepository.getTasks(filterDto, user);
   }
 
   // getAllTasks(): Task[] {
